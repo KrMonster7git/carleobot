@@ -54,7 +54,8 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await start(update, context)
 
 # Запуск
-app = ApplicationBuilder().token(8014079225:AAERc8oELijpmfiLswn-rUm1ovd3k3SaYWc).build()
+import os
+app = ApplicationBuilder().token(os.environ["BOT_TOKEN]).build()
 app.add_handler(CommandHandler("start", start))
 app.add_handler(CallbackQueryHandler(button))
 
